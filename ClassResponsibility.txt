@@ -1,0 +1,44 @@
+Class: Book
+Responsibilities:
+- Store book details (title, id)
+- Track total copies and available copies
+- Handle borrow and return logic
+
+Class: User (Abstract)
+Responsibilities:
+- Store user details (name, id)
+- Track borrowed books
+- Provide base borrow/return behavior
+
+Class: Student (extends User)
+Responsibilities:
+- Limit borrowing to 3 books
+
+Class: Librarian (extends User)
+Responsibilities:
+- Manage books (add/remove)
+- No borrowing limit
+
+Class: Library
+Responsibilities:
+- Store collection of books
+- Handle borrowing transactions
+- Enforce system rules
+
+Class: TransactionLog
+Responsibilities:
+- Record borrow/return actions
+- Store history
+
+DESIGN DECISIONS:
+A2: Design Decisions
+
+Why this structure:
+
+Separation of concerns:
+Book → state + rules for copies
+User → behavior
+Library → coordination
+
+Avoids bundling together into one file called a God class. A god class is one that takes 
+in unnecessary responsibilty doing everything in one class.
